@@ -1,0 +1,10 @@
+# @name create_subscription
+POST http://localhost:3333/subscriptions
+Content-Type: application/json
+
+{
+  "name": "Leonardo do Nascimento",
+  "email": "email@example.com"
+}
+
+###
