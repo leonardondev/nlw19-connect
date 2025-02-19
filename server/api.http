@@ -1,3 +1,5 @@
+@subscriberId=f28689d6-7a44-48d8-b396-2e42dc24f78f
+
 # @name create_subscription
 POST http://localhost:3333/subscriptions
 Content-Type: application/json
@@ -8,3 +10,7 @@ Content-Type: application/json
 }
 
 ###
+
+# @name access_invite_link
+GET http://localhost:3333/invites/{{subscriberId}}
+
