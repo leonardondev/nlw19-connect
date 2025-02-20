@@ -1,3 +1,4 @@
+@friendId=9c65f817-2686-4bb3-ad92-3decc62fa356
 @subscriberId=f28689d6-7a44-48d8-b396-2e42dc24f78f
 
 # @name create_subscription
@@ -5,12 +6,35 @@ POST http://localhost:3333/subscriptions
 Content-Type: application/json
 
 {
-  "name": "Leonardo do Nascimento",
-  "email": "email@example.com"
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "referrer": "{{friendId}}"
 }
 
 ###
 
 # @name access_invite_link
 GET http://localhost:3333/invites/{{subscriberId}}
+
+
+###
+
+# @name subscribers_count_clicks
+GET http://localhost:3333/subscribers/{{subscriberId}}/ranking/clicks
+
+
+###
+
+# @name subscribers_ranking_count
+GET http://localhost:3333/subscribers/{{subscriberId}}/ranking/count
+
+###
+
+# @name subscribers_ranking_position
+GET http://localhost:3333/subscribers/{{subscriberId}}/ranking/position
+
+###
+
+# @name ranking
+GET http://localhost:3333/ranking
 
