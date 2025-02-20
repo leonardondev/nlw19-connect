@@ -1,0 +1,11 @@
+{
+  "target": "es2022",
+  "entry": [
+    "./src/**/*.ts", 
+    "!src/**/*.spec.*",
+    "!src/utils/test"
+  ],
+  "format": "esm",
+  "outDir": "dist",
+  "clean": true
+}
