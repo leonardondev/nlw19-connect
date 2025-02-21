@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node --env-file=.env build/server.mjs",
+    "start": "node --env-file=.env dist/server.mjs",
     "dev": "tsx watch --env-file=.env src/server.ts",
     "premigrate": "drizzle-kit generate",
     "migrate": "drizzle-kit migrate",

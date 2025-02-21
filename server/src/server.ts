@@ -18,28 +18,22 @@ import { getSubscriberRankingPositionRoute } from './routes/get-subscriber-ranki
 import { subscribeToEventRoute } from './routes/subscribe-to-event.route'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
-
 app.setSerializerCompiler(serializerCompiler)
 app.setValidatorCompiler(validatorCompiler)
 
-app.register(fastifyCors, {
-  origin: 'https://localhost:3333',
-})
+/* Cors */
+app.register(fastifyCors, { origin: env.CORS_ORIGIN })
 
+/* Docs */
 app.register(fastifySwagger, {
   openapi: {
-    info: {
-      title: 'NLW Connect',
-      version: '0.0.1',
-    },
+    info: { title: 'NLW Connect', version: '0.0.1' },
   },
   transform: jsonSchemaTransform,
 })
+app.register(fastifySwaggerUi, { routePrefix: '/docs' })
 
-app.register(fastifySwaggerUi, {
-  routePrefix: '/docs',
-})
-
+/* Application routes */
 app.register(subscribeToEventRoute)
 app.register(accessInviteLinkRoute)
 app.register(getSubscriberInviteClicksRoute)
@@ -50,6 +44,7 @@ app.register(getRankingRoute)
 app
   .listen({
     port: Number(env.PORT),
+    host: '0.0.0.0',
   })
   .then(() => {
     console.log(`HTTP server running on port ${env.PORT}`)
