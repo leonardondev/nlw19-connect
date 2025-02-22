@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "rocketseat.theme-omni",
+    "bradlc.vscode-tailwindcss",
+    "csstools.postcss",
+    "biomejs.biome",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}
